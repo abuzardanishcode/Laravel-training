@@ -9,9 +9,20 @@ class FormController extends Controller
     //
     function SignupForm(Request $req){
          //return $req;
-         echo "<h1>User name is $req->username </h1>";
-         echo "<h1>User email is $req->email </h1>";
-         echo "<h1>User city is $req->city </h1>";
+         $req->validate([
+             "username" => 'required | min:3 | max:10 | alpha',
+             "email"    => 'required | email',
+             "city"     => 'required | uppercase',
+             "skill"    => 'required'
+          ],
+          [
+            'username.required' => "username can't be empty",
+            'username.min' => "Please insert atleast 3 character",
+            'username.alpha' => "Text to daal bhai name me"
+          ]
+        );
+
+          return $req;
          //return("you have successfully signup via controller");
     }
 }

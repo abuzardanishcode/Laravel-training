@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+Use App\Http\Controllers\FormController;
 
 Route::get('/', function () {
     return view('home');
@@ -24,3 +25,13 @@ Route::get('/user/{name}', [UserController::class, 'getUserName']);
 Route::get("view", [UserController::class, 'getView']);
 
 Route::get("login", [UserController::class, 'login']);
+
+Route::get("signup", function(){
+    return view("form");
+});
+
+/* Route::post("signup-result", function(){
+    return("you have successfully signup");
+}); */
+
+Route::post("signup-result", [FormController::class, 'SignupForm']);

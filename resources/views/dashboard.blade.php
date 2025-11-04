@@ -1,1 +1,3 @@
-<h1>Dashboard page</h1>
+@include('comman.header')
+
+@include('comman.inner', ['pages' => 'This is dashboard'])

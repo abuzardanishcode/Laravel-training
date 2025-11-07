@@ -1,5 +1,42 @@
-<h1>Welcome to the home page</h1>
+@extends('comman.layout')
+@section('title')
+    Home page
+@endsection
 
-@include('comman.header')
+@section('styles')
+    <style>
+        .success {
+            background: lightgreen;
+            color: green;
+            padding: 2px 10px;
+            border-radius: 2px;
+            margin: 2px;
+        }
 
-@include('comman.inner', ['pages' => 'This is homepage'])
+        .error {
+            background: #f18d9a;
+            color: red;
+            padding: 2px 10px;
+            border-radius: 2px;
+            margin: 2px;
+        }
+    </style>
+@endsection
+
+@php
+    $class = "success";
+    $msg = "my message";
+    
+@endphp
+
+@section('content')
+    <div class="{{ $class }}">
+        {{ $msg }}
+    </div>
+@endsection
+
+@section('script')
+    <script>
+
+    </script>
+@endsection
